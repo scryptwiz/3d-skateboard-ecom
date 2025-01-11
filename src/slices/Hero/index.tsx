@@ -1,4 +1,5 @@
 import { Bounded } from "@/components/Bounded";
+import { ButtonLink } from "@/components/ButtonLink";
 import { Heading } from "@/components/Heading";
 import { Content } from "@prismicio/client";
 import { PrismicNextLink } from "@prismicio/next";
@@ -28,7 +29,8 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
           <div className="max-w-[45ch] font-semibold ~text-lg/xl">
             <PrismicRichText field={slice.primary.body} />
           </div>
-          <PrismicNextLink field={slice.primary.button} />
+          <ButtonLink field={slice.primary.button} icon="skateboard" size="lg" className="z-20 mt-2 block">{slice.primary.button.text}</ButtonLink>
+          {/* <button className="new-button-cutout">Hello</button> */}
         </div>
       </div>
     </Bounded>
