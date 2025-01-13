@@ -14,7 +14,6 @@ export type ProductGridProps = SliceComponentProps<Content.ProductGridSlice>;
  * Component for "ProductGrid" Slices.
  */
 const ProductGrid = ({ slice }: ProductGridProps): JSX.Element => {
-  console.log(slice.primary.product[0]);
   return (
     <Bounded
       data-slice-type={slice.slice_type}
