@@ -6,6 +6,7 @@ import { PrismicRichText, PrismicText, SliceComponentProps } from "@prismicio/re
 import clsx from "clsx";
 import { JSX } from "react";
 import ParallaxImage from "./ParallaxImage";
+import { SlideIn } from "@/components/SlideIn";
 
 declare module "react" {
   interface CSSProperties {
@@ -42,17 +43,23 @@ const About = ({ slice, index }: AboutProps): JSX.Element => {
           "flex flex-col items-center gap-8 text-center md:items-start md:text-left",
           slice.variation === "imageOnLeft" && "md:order-2"
         )}>
-          <Heading as="h2" size="lg">
-            <PrismicText field={slice.primary.heading} />
-          </Heading>
-          <div className="max-w-md text-lg leading-relaxed">
-            <PrismicRichText field={slice.primary.body} />
-          </div>
-          {buttonLink && (
-            <ButtonLink field={slice.primary.button} color={theme === "Orange" ? "lime" : "orange"} className="block mt-4">
-              {slice.primary.button.text}
-            </ButtonLink>
-          )}
+          <SlideIn>
+            <Heading as="h2" size="lg">
+              <PrismicText field={slice.primary.heading} />
+            </Heading>
+          </SlideIn>
+          <SlideIn>
+            <div className="max-w-md text-lg leading-relaxed">
+              <PrismicRichText field={slice.primary.body} />
+            </div>
+          </SlideIn>
+          <SlideIn>
+            {buttonLink && (
+              <ButtonLink field={slice.primary.button} color={theme === "Orange" ? "lime" : "orange"} className="block mt-4">
+                {slice.primary.button.text}
+              </ButtonLink>
+            )}
+          </SlideIn>
         </div>
         <ParallaxImage forgroundImage={slice.primary.foreground_image} backgroundImage={slice.primary.background_imgae} />
       </div>
